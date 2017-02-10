@@ -1,0 +1,43 @@
+
+/* Instance Header -- override some dataverse styles */
+#dataverse-header-block {
+    padding-top: 0px;
+}
+.navbar-fixed-top {
+    top: initial;
+    position: relative;
+}
+
+/* set instance styles */
+.instance-header-block {
+    background-color: #002D72;
+    min-height: 50px;
+}
+.instance-logo {
+    position: relative;
+    display: block;
+    max-height: 40px;
+    margin-top: 5px;
+    width: auto;
+    height: auto;
+}
+.instance-text {
+   color: #C0C0C0;
+   display: block;
+   float: right;
+   font-size: 24px;
+   font-weight: 200;
+   font-family: "Adobe Garamond Pro","Garamond Premiere Pro",Garamond,Baskerville,"Baskerville Old Face","Hoefler Text","Times New Roman",serif;
+   margin-left: 40px;
+   padding: 0px 0px;
+   text-shadow: 0 1px 0 #000000;
+   text-decoration: none;
+}
+.instance-text-normal {
+
+}
+.instance-text-narrow {
+}
+.instance-text:hover {
+   color: #FFFFFF;
+}

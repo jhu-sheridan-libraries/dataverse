@@ -6,7 +6,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
-      xmlns:c="http://java.sun.com/jsp/jstl/core"      
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
       lang="en">
     <h:head>
         <f:facet name="first">
@@ -35,7 +35,13 @@
     </h:head>
     <h:body styleClass="#{widgetWrapper.widgetView ? 'widget-view' : ''}">
         <f:loadBundle basename="Bundle" var="bundle"/>
-        <a href="#content" class="sr-only">#{bundle['body.skip']}</a>       
+        <a href="#content" class="sr-only">#{bundle['body.skip']}</a>
+
+        <!-- INSTANCE BRANDING HEADER BLOCK -->
+        <c:if test="#{settingsWrapper.get(':instanceBrandingHeader')}">
+            <ui:include src="instance_header.xhtml" />
+        </c:if>
+
         <ui:include src="dataverse_header.xhtml">
             <ui:param name="dataverse" value="#{dataverse != null ? dataverse : dataverseServiceBean.findRootDataverse()}"/>
             <ui:param name="showDataverseHeader" value="#{showDataverseHeader != null ? showDataverseHeader : true}"/>
@@ -45,6 +51,12 @@
         <div class="container" id="content">
             <ui:insert name="body">Default Body</ui:insert>
         </div>
+
+        <!-- INSTANCE BRANDING FOOTER BLOCK -->
+        <c:if test="#{settingsWrapper.get(':instanceBrandingFooter')}">
+            <ui:include src="instance_footer.xhtml" />
+        </c:if>
+
         <!-- FOOTER BLOCK -->
         <ui:include src="dataverse_footer.xhtml">
             <ui:param name="widgetView" value="#{widgetWrapper.widgetView}"/>

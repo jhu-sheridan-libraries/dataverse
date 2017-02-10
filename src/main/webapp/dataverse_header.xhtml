@@ -21,7 +21,17 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a href="/">
-                        <span class="navbar-brand"><i id="icon-dataverse" class="icon-dataverse"></i> #{bundle.dataverse}</span>
+                        <c:choose>
+                            <c:when test="#{settingsWrapper.get(':instanceBrandingHeader')}">
+                                <span class="navbar-brand"><i id="icon-dataverse" class="icon-dataverse"></i>
+                                    <span class="#{settingsWrapper.get(':instanceNameFullClasses')}"> #{settingsWrapper.get(':instanceNameFull')}</span>
+                                    <span class="#{settingsWrapper.get(':instanceNameShortClasses')}"> #{settingsWrapper.get(':instanceNameShort')}</span>
+                                </span>
+                            </c:when>
+                            <c:otherwise>
+                                <span class="navbar-brand"><i id="icon-dataverse" class="icon-dataverse"></i> #{bundle.dataverse}</span>
+                            </c:otherwise>
+                        </c:choose>
                     </a>
                     <h:outputLink value="#" onclick="PF('statusInfo').show()" rendered="#{!empty settingsWrapper.get(':StatusMessageText')}">
                         <span class="label label-default status">#{!empty settingsWrapper.get(':StatusMessageHeader') ? settingsWrapper.get(':StatusMessageHeader') : bundle['header.status.header']}</span>

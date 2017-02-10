@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+     xmlns:jsf="http://xmlns.jcp.org/jsf"
+     xmlns:iqbs="http://xmlns.jcp.org/jsf/composite/iqbs">
+
+    <h:head>
+      <link type="text/css" rel="stylesheet" href="#{resource['css/instance-header-overrides.css']}" />
+    </h:head>
+
+    <div class="instance-header-block">
+        <div class="container">
+            <table width="100%">
+                <tr>
+                    <td style="vertical-align:middle">
+                        <a href="#{settingsWrapper.get(':instanceLogoLink')}">
+                            <img class="instance-logo" src="#{settingsWrapper.get(':instanceLogoFile')}"/>
+                        </a>
+                    </td>
+                    <td style="vertical-align:middle; text-align:left">
+                        <a class="instance-text #{settingsWrapper.get(':instanceTextFullClasses')}"
+                            href="#{settingsWrapper.get(':instanceTextLink')}">#{settingsWrapper.get(':instanceTextFull')}</a>
+                        <a class="instance-text #{settingsWrapper.get(':instanceTextShortClasses')}"
+                            href="#{settingsWrapper.get(':instanceTextLink')}">#{settingsWrapper.get(':instanceTextShort')}</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</ui:composition>
